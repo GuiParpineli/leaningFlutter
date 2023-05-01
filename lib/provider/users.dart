@@ -19,17 +19,29 @@ class Users with ChangeNotifier {
     return _items.values.elementAt(i);
   }
 
-  void put(User user){
+  void put(User user) {
+    if (_items.containsKey(user.id) && user.id.trim().isNotEmpty) {
+      _items.update(user.id, (value) => user);
+    } else {
+      final id = Random().nextDouble().toString();
 
-    final id = Random().nextDouble().toString();
-
-    _items.putIfAbsent(id, () => User(
-      id: id,
-      name: user.name,
-      email: user.email,
-      avatarUrl: user.avatarUrl,
-    ));
+      _items.putIfAbsent(
+          id,
+          () => User(
+                id: id,
+                name: user.name,
+                email: user.email,
+                avatarUrl: user.avatarUrl,
+              ));
+    }
 
     notifyListeners();
+  }
+
+  void remove(User user) {
+    if (user.id.isNotEmpty) {
+      _items.remove(user.id);
+      notifyListeners();
+    }
   }
 }

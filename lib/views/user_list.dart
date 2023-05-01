@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutterappteste/components/user_tile.dart';
+import 'package:flutterappteste/models/user.dart';
 import 'package:provider/provider.dart';
 
 import '../provider/users.dart';
@@ -14,7 +15,9 @@ class UserList extends StatelessWidget {
         title: const Text('Lista de Usuarios'),
         actions: <Widget>[
           IconButton(
-            onPressed: () {},
+            onPressed: () {
+
+            },
             icon: const Icon(Icons.add),
           )
         ],
