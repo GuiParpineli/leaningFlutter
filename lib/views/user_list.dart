@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutterappteste/components/user_tile.dart';
 import 'package:flutterappteste/models/user.dart';
+import 'package:flutterappteste/routes/AppRoutes.dart';
 import 'package:provider/provider.dart';
 
 import '../provider/users.dart';
@@ -16,7 +17,7 @@ class UserList extends StatelessWidget {
         actions: <Widget>[
           IconButton(
             onPressed: () {
-
+              Navigator.of(context).pushNamed(AppRoutes.USER_FORM);
             },
             icon: const Icon(Icons.add),
           )

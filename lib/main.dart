@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutterappteste/provider/users.dart';
+import 'package:flutterappteste/routes/AppRoutes.dart';
+import 'package:flutterappteste/views/UserForm.dart';
 import 'package:flutterappteste/views/user_list.dart';
 import 'package:provider/provider.dart';
 
@@ -19,11 +21,13 @@ class MyApp extends StatelessWidget {
         title: 'Flutter Demo',
         theme: ThemeData(
           primarySwatch: Colors.blue,
+          visualDensity: VisualDensity.adaptivePlatformDensity,
         ),
-        home: UserList(),
+        routes: {
+          AppRoutes.HOME: (_) => UserList(),
+          AppRoutes.USER_FORM: (_) => UserForm()
+        },
       ),
     );
   }
 }
-
-
