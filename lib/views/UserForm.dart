@@ -9,11 +9,13 @@ class UserForm extends StatelessWidget {
   final _form = GlobalKey<FormState>();
   final Map<String, String> _formData = {};
 
+  UserForm({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Formulario de Usuario'),
+        title: const Text('Formulario de Usuario'),
         actions: [
           IconButton(
             onPressed: () {
@@ -31,29 +33,29 @@ class UserForm extends StatelessWidget {
                 Navigator.of(context).pop();
               }
             },
-            icon: Icon(Icons.save),
+            icon: const Icon(Icons.save),
           ),
         ],
       ),
       body: Padding(
-        padding: EdgeInsets.all(25),
+        padding: const EdgeInsets.all(25),
         child: Form(
           key: _form,
           child: Column(
             children: [
               TextFormField(
-                decoration: InputDecoration(labelText: 'Nome'),
+                decoration: const InputDecoration(labelText: 'Nome'),
                 validator: (value) {
                   if (value!.length < 3) return 'Error';
                 },
                 onSaved: (value) => _formData['name'] = value!,
               ),
               TextFormField(
-                decoration: InputDecoration(labelText: 'Email'),
+                decoration: const InputDecoration(labelText: 'Email'),
                 onSaved: (value) => _formData['email'] = value!,
               ),
               TextFormField(
-                decoration: InputDecoration(labelText: 'URL do Avatar'),
+                decoration: const InputDecoration(labelText: 'URL do Avatar'),
                 onSaved: (value) => _formData['avatarUrl'] = value!,
               ),
             ],
