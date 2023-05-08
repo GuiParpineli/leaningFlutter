@@ -6,19 +6,19 @@ import '../models/user.dart';
 class UserTile extends StatelessWidget {
   final User user;
 
-  const UserTile(this.user);
+  const UserTile(this.user, {super.key});
 
   @override
   Widget build(BuildContext context) {
     final avatar = user.avatarUrl.isEmpty
-        ? CircleAvatar(child: Icon(Icons.person))
+        ? const CircleAvatar(child: Icon(Icons.person))
         : CircleAvatar(backgroundImage: NetworkImage(user.avatarUrl));
 
     return ListTile(
       leading: avatar,
       title: Text(user.name),
       subtitle: Text(user.email),
-      trailing: Container(
+      trailing: SizedBox(
         width: 100,
         child: Row(
           children: <Widget>[
@@ -30,12 +30,12 @@ class UserTile extends StatelessWidget {
                 );
               },
               color: Colors.orange,
-              icon: Icon(Icons.edit),
+              icon: const Icon(Icons.edit),
             ),
             IconButton(
               onPressed: () {},
               color: Colors.red,
-              icon: Icon(Icons.delete),
+              icon: const Icon(Icons.delete),
             ),
           ],
         ),
